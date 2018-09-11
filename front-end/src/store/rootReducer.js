@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import user from "./User/reducer.js";
 import timeOff from "./TimeOff/reducer.js";
 import shift from "./Shift/reducer.js";
-import hourOfOperation from "./HourOfOperation/reducer.js";
+import hourOfOperation from "./HoO/reducer.js";
 import employer from "./Employer/reducer.js";
 import employee from "./Employee/reducer.js";
 import contact from "./Contact/reducer.js";
