@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "../styles/App.css";
 
-// import {
-//   Billing,
-//   Calendar,
-//   Dashboard,
-//   Employees,
-//   Landing,
-//   Settings,
-//   Signin,
-// } from "./Pages";
-import Landing from "./Pages/Landing";
+import {
+  Billing,
+  Calendar,
+  Dashboard,
+  Employees,
+  Landing,
+  Settings,
+  Signin,
+} from "./Pages";
+//import Landing from "./Pages/Landing";
 
 // TODO: Add routing
 
