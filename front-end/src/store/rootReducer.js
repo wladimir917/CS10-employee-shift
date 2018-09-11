@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
 
-import user from "./user/reducer.js";
-import timeOff from "./timeOff/reducer.js";
-import shift from "./shift/reducer.js";
-import hourOfOperation from "./hourOfOperation/reducer.js";
-import employer from "./employer/reducer.js";
-import employee from "./employee/reducer.js";
-import contact from "./contact/reducer.js";
-import calendarDay from "./calendarDay/reducer.js";
-import availability from "./availability/reducer.js";
+import user from "./User/reducer.js";
+import timeOff from "./TimeOff/reducer.js";
+import shift from "./Shift/reducer.js";
+import hourOfOperation from "./HourOfOperation/reducer.js";
+import employer from "./Employer/reducer.js";
+import employee from "./Employee/reducer.js";
+import contact from "./Contact/reducer.js";
+import calendarDay from "./CalendarDay/reducer.js";
+import availability from "./Availability/reducer.js";
 
 export const rootReducer = combineReducers({
   user,
