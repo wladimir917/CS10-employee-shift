@@ -1,19 +1,25 @@
 import React from "react";
-import '../../styles/LandingRef.css'
+import { Link } from "react-router-dom";
+import "../../styles/LandingRef.css"
 
 const Landing = () => {
   return (
     <div className="container">
       <div className="background-holder">
         <div className="nav-bar">
-          <button>Sign up</button>
-          <button>Sign in</button>
+          <Link to="">
+            <button>Sign up</button>
+          </Link>
+          <Link to="/signin">
+            <button>Sign in</button>
+          </Link>
         </div>
         <span className="welcome-text">Welcome</span>
       </div>
       <div className="schedule-button">
-        <button className="button-button">Schedule Now
-    </button>
+        <Link to="/calendar">
+          <button className="button-button">Schedule Now</button>
+        </Link>
       </div>
       <div className="footer">
         <footer>
