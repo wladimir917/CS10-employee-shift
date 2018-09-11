@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import {Card, CardTitle, CardBody} from 'reactstrap';
 import '../../styles/signin.css';
 
-
-
-
 class Signin extends Component {
   constructor(props){
     super(props)
@@ -18,7 +15,7 @@ class Signin extends Component {
 
   }
 
-  inputChangeHandler = event => {
+  inputChangeHandler = event => { // render user input
     const { name, value } = event.target;
     this.setState({ [name] : value });
   }
