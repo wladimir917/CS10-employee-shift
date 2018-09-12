@@ -95,7 +95,8 @@ TEMPLATES = [
 
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL')
 
-CORS_ALLOW_HEADERS = (‘content-disposition’, ‘accept-encoding’, ‘content-type’, ‘accept’, ‘origin’, ‘authorization’, ‘cache-control’)
+CORS_ALLOW_HEADERS =  ('content-disposition', 'accept-encoding', 'content-type', 'accept', 'origin', 'authorization', 'cache-control')
+
 
 WSGI_APPLICATION = 'employee_shift.wsgi.application'
 
