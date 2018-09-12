@@ -61,7 +61,9 @@ MIDDLEWARE = [
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+
 }
 
 REST_FRAMEWORK = {
@@ -92,6 +94,9 @@ TEMPLATES = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL')
+
+CORS_ALLOW_HEADERS =  ('content-disposition', 'accept-encoding', 'content-type', 'accept', 'origin', 'authorization', 'cache-control')
+
 
 WSGI_APPLICATION = 'employee_shift.wsgi.application'
 
