@@ -33,6 +33,8 @@ ALLOWED_HOSTS = list(config('ALLOWED_HOSTS').split(','))
 # Application definition
 
 INSTALLED_APPS = [
+    'oauth2_provider',
+    'rest_framework',
     'shiftapp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +56,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
+
 ROOT_URLCONF = 'employee_shift.urls'
 
 TEMPLATES = [
@@ -71,6 +87,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'employee_shift.wsgi.application'
 
