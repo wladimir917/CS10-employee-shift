@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card, CardTitle, CardBody } from "reactstrap";
 import "../../styles/signin.css";
 
 import { signin } from "../../store/User/actions.js";
@@ -24,11 +23,11 @@ class Signin extends Component {
 
   render() {
     return (
-      <Card className="card">
+      <div className="card">
         <form onSubmit={this.submitHandler}>
-          <CardBody className="card-body">
+        <div className="card_body">
             <div>
-              <CardTitle>Email Address</CardTitle>
+              <h3>Username</h3>
               <input
                 value={this.state.email}
                 onChange={this.inputChangeHandler}
@@ -37,20 +36,20 @@ class Signin extends Component {
               />
             </div>
             <div>
-              <CardTitle>Password</CardTitle>
+              <h3>Password</h3>
               <input
                 value={this.state.password}
                 onChange={this.inputChangeHandler}
                 name="password"
-                type="text"
+                type="password"
               />
             </div>
             <div>
               <button type="submit">Sign in</button>
             </div>
-          </CardBody>
+            </div>
         </form>
-      </Card>
+        </div>
     );
   }
 }
