@@ -10,6 +10,9 @@ gunicorn = "*"
 dj-database-url = "*"
 python-decouple = "*"
 whitenoise = "*"
+django-oauth-toolkit = "*"
+djangorestframework = "*"
+django-cors-middleware = "*"
 
 [dev-packages]
 
