@@ -42,35 +42,23 @@ import axios from "axios";
 // };
 
 export const signin = (username, password) => dispatch => {
-  const headers = {
-    "Content-Type": "application/json",
-  };
+  const body = JSON.stringify({
+    grant_type: "password",
+    username: `${username}`,
+    password: `${password}`,
+    client_id: `${process.env.CLIENT_ID}`,
+    client_secret: `${process.env.CLIENT_SECRET}`,
+  });
 
-  const body = JSON.stringify({ username, password });
-
-  // currently: dummy login URL
   axios({
-    url: "http://djangodashboard.herokuapp.com/rest-auth/login/",
     method: "post",
-    headers: headers,
+    url: `${process.env.ROOT_URL}/o/token/`,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Cache-Control": "no-cache",
+    },
     data: body,
   })
-    // OAUTH2 POST (in progress)
-    //(
-    //     axios({
-    //     //   method: "post",
-    //     //   // Set Access Token URL
-    //     //   url: `${ROOT_URL}/o/token/`,
-    //     //   // Set Headers
-    //     //   headers: {
-    //     //     "Content-Type": "application/x-www-form-urlencoded",
-    //     //     "Cache-Control": "no-cache",
-    //     //   },
-    //     //   // Interpolate variables in the strings using Template Literals
-    //     //   data: `grant_type=${GRANT_TYPE}&username=${username}&password=${password}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
-    //     // })
-    //     }
-    //   )
     .then(res => {
       if (res.status < 500) {
         return { status: res.status, data: res.data };
@@ -81,8 +69,6 @@ export const signin = (username, password) => dispatch => {
     })
     .then(res => {
       if (res.status === 200) {
-        // DEVELOPMENT CONSOLE LOG : REMOVE ME
-        console.log(res.data);
         dispatch({ type: "SIGNIN_SUCCESSFUL", data: res.data });
         return res.data;
       } else if (res.status === 403 || res.status === 401) {
