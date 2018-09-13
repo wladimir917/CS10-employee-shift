@@ -1,5 +1,4 @@
 import axios from "axios";
-
 // TODO: Refactor to use OAuth2
 
 // Action to get user when the token is saved in local storage
