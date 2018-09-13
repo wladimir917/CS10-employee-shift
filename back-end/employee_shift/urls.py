@@ -19,9 +19,14 @@ from shiftapp.api import UserList, UserDetails, GroupList
 from django.contrib.auth.models import User, Group
 admin.autodiscover()
 
-from rest_framework import generics, permissions, serializers
+from rest_framework import generics, permissions, serializers, routers
 
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
+
+from shiftapp.api import EmployeeList
+
+router = routers.DefaultRouter()
+router.register(r'employees', EmployeeList)
 
 
 urlpatterns = [
@@ -29,5 +34,7 @@ urlpatterns = [
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('users/', UserList.as_view()),
     path('users/<pk>/', UserDetails.as_view()),
-    path('groups/', GroupList.as_view())
+    path('groups/', GroupList.as_view()),
+    # path('employees/', EmployeeList.as_view({'get': 'list'}))
+    path('api/', include(router.urls))
 ]
