@@ -33,6 +33,7 @@ ALLOWED_HOSTS = list(config('ALLOWED_HOSTS').split(','))
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'oauth2_provider',
     'rest_framework',
     'shiftapp',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,9 +58,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+
 }
 
 REST_FRAMEWORK = {
@@ -88,6 +93,9 @@ TEMPLATES = [
     },
 ]
 
+CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL')
+
+CORS_ALLOW_HEADERS =  ('content-disposition', 'accept-encoding', 'content-type', 'accept', 'origin', 'authorization', 'cache-control')
 
 
 WSGI_APPLICATION = 'employee_shift.wsgi.application'
